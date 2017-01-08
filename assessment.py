@@ -84,8 +84,9 @@ def foods_in_common(foods1, foods2):
 # Note: I did not want to use set because it would not be possible to keep the
 # common foods alphabetized since sets are unordered. Also, tuples didn't seem
 # as practical to use for solving this problem since they aren't mutable.
-# I think I would have to make a new tuple containing the common foods to the
-# existing tuple each time. Lists seemed like the best choice for this problem.
+# I think I would have to make a new tuple containing the common foods to add
+# to the existing tuple each time.
+
 
 def every_other_item(items):
     """Return every other item in `items`, starting at first item.
@@ -124,9 +125,14 @@ def largest_n_items(items, n):
         >>> largest_n_items([3, 3, 3, 2, 1], 2)
         [3, 3]
     """
-
-    return []
-
+    if n == 0:
+        return []
+    largest_items = []
+    items.sort()
+    while n > 0:
+        largest_items.append(items[-n])
+        n = n - 1
+    return largest_items
 
 #####################################################################
 # END OF ASSESSMENT: You can ignore everything below.
