@@ -345,8 +345,15 @@ def duplicates(items):
         >>> orig
         ['apple', 'apple', 'berry']
     """
-
-    return []
+    duplicate_items = []
+    for item in items:
+        for x in items[1:]:
+            if item == x:
+                duplicate_items.append(item)
+    # for pos in range(len(items)-1):
+    #     if items[pos] == items[pos+1]:
+    #         duplicate_items.append(items[pos])
+    return set(duplicate_items)
 
 
 # def find_letter_indices(words, letter):
